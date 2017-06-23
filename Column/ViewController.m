@@ -10,8 +10,6 @@
 #define PhoneScreen_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define PhoneScreen_WIDTH [UIScreen mainScreen].bounds.size.width
 #define RGBColorMaker(r, g, b, a) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-#import "SSColumnView.h"
-#import "SSView.h"
 #import "SSSolidCakeView.h"
 
 @interface ViewController ()
@@ -29,8 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self storeData];
-//    [self loadColumnView];
-//    [self loadSSView];
+
     [self loadSolidCakeView];
     
 }
@@ -56,29 +53,7 @@
     dataChangeButton.backgroundColor = [UIColor redColor];
     [self.view addSubview:dataChangeButton];
 }
-#pragma mark 加载视图
-- (void)loadColumnView
-{
-    SSColumnView *columnView = [[SSColumnView alloc]init];
-    columnView.backgroundColor = [UIColor grayColor];
-    columnView.dataArray = _dataArray;
-    columnView.colorArray = _colorArray;
-    columnView.nameArray = _nameArray;
-    columnView.frame = CGRectMake(0, 0, PhoneScreen_WIDTH-40, PhoneScreen_HEIGHT-20);
-    [self.view addSubview:columnView];
-}
-#pragma mark 加载自己做的的视图
-- (void)loadSSView
-{
-    SSView *columnView = [[SSView alloc]init];
-    columnView.dataArray = _dataArray;
-    columnView.colorArray = _colorArray;
-    columnView.nameArray = _nameArray;
-    columnView.cakeHeight = 50;
-    columnView.backgroundColor = [UIColor whiteColor];
-    columnView.frame = CGRectMake(0, 0, PhoneScreen_WIDTH-100, PhoneScreen_HEIGHT-20);
-    [self.view addSubview:columnView];
-}
+
 #pragma mark 加载自己封装的视图
 - (void)loadSolidCakeView
 {
